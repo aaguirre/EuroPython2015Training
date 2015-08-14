@@ -1,0 +1,20 @@
+- name: Copy buildout file to the destination directory
+  copy: src=buildout.cfg dest={{ installation_path }} 
+
+- name: Copy versions file to the destination directory
+  copy: src=versions.cfg dest={{ installation_path }}
+
+- name: Copy boostrap.py file to the destination directory
+  copy: src=bootstrap-buildout.py dest={{ installation_path }}
+
+- name: Run Bootstrap
+  command: "{{ python_path }}/python bootstrap-buildout.py"
+  args:
+     chdir: "{{ installation_path }}"  
+
+- name: Run buildout
+  command: bin/buildout -o
+  args: 
+     chdir: "{{ installation_path }}"
+  notify:
+     - start myapp

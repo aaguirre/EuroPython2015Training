@@ -1,0 +1,5 @@
+- name: Install myapp
+  hosts: all
+  roles:
+    - { role: myapp, tags: ['web'] }
+

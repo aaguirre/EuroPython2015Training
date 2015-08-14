@@ -1,0 +1,11 @@
+- name: pre
+  command: ls
+  ignore_errors: yes
+
+- name: run my application image
+  docker:
+     name: "myapp2"
+     state: started
+     image: "imyapp:latest"
+     ports:
+        - "6543:6543"

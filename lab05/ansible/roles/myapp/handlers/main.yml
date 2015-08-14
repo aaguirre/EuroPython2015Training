@@ -1,0 +1,9 @@
+#- name: start myapp
+#  command: bin/pserve src/my.app/development.ini --daemon --pid=app.pid
+#  args:
+#     chdir: "{{ installation_path }}"
+#  notify:
+#    - wait for service
+
+#- name: wait for service
+#  wait_for: port=6543 delay=20

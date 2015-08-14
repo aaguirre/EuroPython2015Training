@@ -1,0 +1,8 @@
+#[development]
+#test.foo
+
+#[production]
+#test.foo
+
+[local]
+localhost              ansible_connection=local
